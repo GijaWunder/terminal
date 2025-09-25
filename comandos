@@ -1,0 +1,20 @@
+arq1.txt; arq2.txt; arq10.txt; arq20.txt; arq25.txt; arg13.txt
+
+* --> substitui qualquer caracter e qualquer quantidade de caracteres.
+* --> Ex: arq1*.txt. (vai pegar o arq1.txt e arq10.txt)
+? --> substitui qualquer caracter (apenas um). 
+? --> Ex: arq??.txt (vai pegar o arq10.txt; arq20.txt; arq25.txt; arg13.txt)
+      Ex: ar?1?*.txt (vai pegar o arq10.txt; arg13.txt)
+
+
+echo --> "manda a mensagem"
+read --> lê a resposta do usuario --> guardar em uma variavel
+echo --> $resposta --> escreve a resposta do usuario
+$# --> número de parametros
+$? --> 
+-eq --> igual que
+-ne --> 
+-gt --> maior que
+-ge --> maior ou igual
+-lt --> menor que
+-le --> menor ou igual
