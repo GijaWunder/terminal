@@ -2,3 +2,81 @@ https://ava.ifpr.edu.br/pluginfile.php/613099/assignsubmission_file/submission_f
 https://ava.ifpr.edu.br/pluginfile.php/613100/assignsubmission_file/submission_files/2078468/identificador?forcedownload=1
 https://ava.ifpr.edu.br/pluginfile.php/613101/assignsubmission_file/submission_files/2079258/menu?forcedownload=1
 https://ava.ifpr.edu.br/pluginfile.php/613102/assignsubmission_file/submission_files/2079290/ordenador?forcedownload=1
+
+
+
+ordenador 
+if [ $# -eq 0 ]
+ then 
+ echo "Nenhum parametro foi informado!"
+ exit 1
+fi 
+
+while [ $# -gt 0 ]
+do 
+ echo $1 >> temp1
+ shift
+done
+
+sort "temp1"
+rm "temp1"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+usuario
+echo "me fale o seu usuario:"
+read usuario
+cut -f 1 -d : /etc/passwd | grep -i $usuario > /dev/null
+if [ $? -eq 0 ]
+then
+ echo "o usuario $usuario existe"
+else 
+ echo "o usuario $usuario nao existe"
+fi
+
+
+
+
+
+
+
+
+menu
+
+while true; do
+  echo "Digite um dos números para ver uma das opçẽos:"
+  echo "1- Exibir o status da utilização das partições do sistema"
+  echo "2- Exibir a relação de usuários logados"
+  echo "3- Exibir a data e hora do sistema"
+  echo "4- Sair"
+  read opcoes
+
+   case $opcoes in 
+    1) 
+      df -h
+      ;;
+    2) 
+      who
+      ;;
+    3)
+      date 
+      ;;
+    4) 
+      break
+      ;;
+    *)
+      echo "Opção não disponível"
+      ;;
+   esac
+done
