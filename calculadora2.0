@@ -1,0 +1,74 @@
+let num1
+let num2
+let simb
+
+if [ $# -eq 3 ]
+ then 
+ case "$2" in
+ x)
+  let result1=$1*$3
+  echo "$1 $2 $3 = $result1"
+ ;;
+
+ -)
+  let result2=$1-$3
+  echo "$1 $2 $3 = $result2"
+ ;;
+
+ +)
+  let result3=$1+$3
+  echo "$1 $2 $3 = $result3"
+ ;;
+
+ /)
+  if [ $3 -eq 0 ]
+   then
+   echo "Erro! Não é posível dividir por $3"
+
+  else 
+   let result4=$1/$3
+   echo "$1 $2 $3 = $result4"
+  fi
+ ;;
+
+esac
+
+else
+ echo "Digite o primeiro operando:"
+ read num1
+
+ echo "Digite o operador:"
+ read simb
+
+ echo "Digite o segundo operando:"
+ read num2
+
+ case "$simb" in 
+  x)
+   let result1=$num1*num2
+   echo "$num1 $simb $num2 = $result1"
+  ;;
+
+  -)
+   let result2=$num1-num2
+   echo "$num1 $simb $num2 = $result2"
+  ;;
+  
+  +)
+   let result3=$num1+num2
+   echo "$num1 $simb $num2 = $result3"
+  ;;
+
+  /)
+   if [ $num2 -eq 0 ]
+    then 
+    echo "Erro! Não é possível dividir por $num2"
+
+   else
+    let result4=$num1/num2
+    echo "$num1 $simb $num2 = $result4"
+   fi
+  ;;
+
+ esac
+fi
